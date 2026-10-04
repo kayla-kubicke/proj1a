@@ -1,4 +1,3 @@
-// (Will eventually house my solution for CS61B's proj1a)
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ public interface Deque61B<T> {
      *
      * @param x item to add
      */
-    // https://www.youtube.com/watch?v=SR8ToeT1-a4
+
     void addLast(T x);
 
     /**
@@ -48,7 +47,7 @@ public interface Deque61B<T> {
      *
      * @return removed element, otherwise {@code null}.
      */
-    // https://www.youtube.com/watch?v=EyHKuyGsu4U
+
     T removeFirst();
 
     /**
