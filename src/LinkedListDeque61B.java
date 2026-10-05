@@ -5,6 +5,10 @@ import java.util.List;
  */
 public class LinkedListDeque61B<T> implements Deque61B<T> {
 
+    private class Node {
+        
+    }
+
     /**
      *
      */
@@ -95,8 +99,3 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         return null;
     }
 }
-
-// A must-see on my next road trip. Dang, I love stuff like that.
-// https://www.youtube.com/watch?v=AwHvr3_Vf2E
-
-// Can't wait to go back to House on the Rock one day. <3 <3 <3
