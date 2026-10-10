@@ -1,30 +1,42 @@
 import java.util.List;
 
+// The deque needs to be:
+    // circular
+    // doubly-linked
+    // with sentinel
+
 /**
  * @param <T>
  */
 public class LinkedListDeque61B<T> implements Deque61B<T> {
-    // Causes a test to fail if uncommented. (Not that it matters much right now.)
-    // private Node first; // ?? Just a dummy for now.
-    // private Node last; // ??
+     private Node frontSentinel;
+     private Node backSentinel;
 
     // static too?
         // Nested classes declared static can not access methods owned by outer class.
     public class Node {
-        //
+         public Node prev;
+         public Node next;
+         public T data;
+
+        public Node(Node prev, Node next, T data) {
+            this.prev = prev;
+            this.next = next;
+            this.data = data;
+        }
     }
 
     /**
      *
      */
     public LinkedListDeque61B() {
-        // ADD: sentinel
+        this.frontSentinel = new Node(null, backSentinel, null); // Is null fine???
+        this.backSentinel = new Node(frontSentinel, null, null);
     }
 
-    // Do I need this?
+    // Do I need this? I don't think so.
     // public LinkedListDeque61B(T data) {
         // Make a default one and "add" to it?
-        // https://www.youtube.com/watch?v=iJBdZw3tzjY
     // }
 
     /**
@@ -33,7 +45,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-
+        // insert after firstSentinel.
     }
 
     /**
@@ -42,7 +54,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
-
+        //insert right before backSentinel.
     }
 
     /**
