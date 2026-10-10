@@ -9,8 +9,7 @@ import java.util.List;
  * @param <T>
  */
 public class LinkedListDeque61B<T> implements Deque61B<T> {
-     private Node frontSentinel;
-     private Node backSentinel;
+     private Node sentinel;
 
     // static too?
         // Nested classes declared static can not access methods owned by outer class.
@@ -30,8 +29,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      *
      */
     public LinkedListDeque61B() {
-        this.frontSentinel = new Node(null, backSentinel, null); // Is null fine???
-        this.backSentinel = new Node(frontSentinel, null, null);
+        this.sentinel = new Node(sentinel, null, null); // Is null (data) fine???
     }
 
     // Do I need this? I don't think so.
