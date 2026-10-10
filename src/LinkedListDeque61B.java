@@ -4,10 +4,10 @@ import java.util.List;
  * @param <T>
  */
 public class LinkedListDeque61B<T> implements Deque61B<T> {
-     private Node first; // ?? Just a dummy for now.
+    // Causes a test to fail if uncommented. (Not that it matters much right now.)
+    // private Node first; // ?? Just a dummy for now.
     // private Node last; // ??
 
-    // Oops, an oversight, needs to be public so outer class can access it...
     // static too?
         // Nested classes declared static can not access methods owned by outer class.
     public class Node {
@@ -18,8 +18,14 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      *
      */
     public LinkedListDeque61B() {
-        // Constructor...
+        // ADD: sentinel
     }
+
+    // Do I need this?
+    // public LinkedListDeque61B(T data) {
+        // Make a default one and "add" to it?
+        // https://www.youtube.com/watch?v=iJBdZw3tzjY
+    // }
 
     /**
      *
