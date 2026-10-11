@@ -1,10 +1,5 @@
 import java.util.List;
 
-// The deque needs to be:
-    // circular
-    // doubly-linked
-    // with sentinel
-
 /**
  * @param <T>
  */
@@ -29,13 +24,37 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      *
      */
     public LinkedListDeque61B() {
-        this.sentinel = new Node(sentinel, null, null); // Is null (data) fine???
+        // Wait, no. Is what I did correct?
+        // I am not confident.
+
+        // My original:
+        // this.sentinel = new Node(sentinel, null, null);
+
+        // So, the previous node points to sentinel.
+        // sentinel itself points to the entire object.
+        // So, when the previous node points at sentinel...
+        // One still can access sentinel.next, but it just points to null.
+
+        // Now:
+        this.sentinel = new Node(sentinel, sentinel, null);
+        // This intuitively seems more circular. Both previous and next point back to
+        // the sentinel object...
+        // But the diagram implies the next node points to the previous.
+        // Clearly, I am not sure. What I am sure of is that is configuration does not
+        // cause a NullPointerException.
     }
 
-    // Do I need this? I don't think so.
-    // public LinkedListDeque61B(T data) {
-        // Make a default one and "add" to it?
-    // }
+    // Don't be foolish, make a beer bread poolish.
+    // https://youtu.be/uz_xDXKjspw?t=178
+    // I'm trying the Alaskan Smoked Porter ('24) with King Arthur whole wheat and white today...
+    // Hm... I shall see. Had a few sips, should be damn tasty.
+
+    // Also, some time this morning my tragus piercing fell out and I only can find the stud which looks... squished???
+    // I feel very underdressed, almost gross. Missing a body part. Why is this so distressing?
+    // Maybe it reminds me of when my ex-husband would remove my helix piercing while I was sleeping and then
+    // claim that it was just falling out. Nope, that's not how the earring works buddy.
+    // And... Deep Roots in Bellevue closed so now I need to go to Rowan.
+    // Maybe a walk around the silly mall will be good for me.
 
     /**
      *
@@ -43,7 +62,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-        // insert after firstSentinel.
     }
 
     /**
@@ -52,7 +70,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
-        //insert right before backSentinel.
     }
 
     /**
