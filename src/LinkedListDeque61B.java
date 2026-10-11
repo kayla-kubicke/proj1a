@@ -24,44 +24,34 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      *
      */
     public LinkedListDeque61B() {
-        // Wait, no. Is what I did correct?
-        // I am not confident.
-
-        // My original:
-        // this.sentinel = new Node(sentinel, null, null);
-
-        // So, the previous node points to sentinel.
-        // sentinel itself points to the entire object.
-        // So, when the previous node points at sentinel...
-        // One still can access sentinel.next, but it just points to null.
-
-        // Now:
         this.sentinel = new Node(sentinel, sentinel, null);
         // This intuitively seems more circular. Both previous and next point back to
         // the sentinel object...
         // But the diagram implies the next node points to the previous.
         // Clearly, I am not sure. What I am sure of is that is configuration does not
         // cause a NullPointerException.
+        // Just going to have to try it, possibly f it up, accept it's wrong, and start again.
     }
 
-    // Don't be foolish, make a beer bread poolish.
-    // https://youtu.be/uz_xDXKjspw?t=178
-    // I'm trying the Alaskan Smoked Porter ('24) with King Arthur whole wheat and white today...
-    // Hm... I shall see. Had a few sips, should be damn tasty.
-
-    // Also, some time this morning my tragus piercing fell out and I only can find the stud which looks... squished???
-    // I feel very underdressed, almost gross. Missing a body part. Why is this so distressing?
-    // Maybe it reminds me of when my ex-husband would remove my helix piercing while I was sleeping and then
-    // claim that it was just falling out. Nope, that's not how the earring works buddy.
-    // And... Deep Roots in Bellevue closed so now I need to go to Rowan.
-    // Maybe a walk around the silly mall will be good for me.
+    // Thankfully found a new piercing parlor super close to my home that can accommodate me.
+    // https://www.youtube.com/watch?v=iWz9H3MPgqI
+    // And my poolish looks very happy.
 
     /**
      *
      * @param x item to add
      */
     @Override
+    // "addFirst and addLast may not use looping or recursion. A single add operation must take "constant time,..."
     public void addFirst(T x) {
+        // Insert after the sentinel:
+            // make new node
+            // assign new node's next to the current first
+            // assign current first's prev to new node
+            // assign new node's previous to sentinel
+            // assign sentinel next to new node
+
+        // but what about updating the sentinel's prev?
     }
 
     /**
