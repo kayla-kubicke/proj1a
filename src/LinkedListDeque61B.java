@@ -24,18 +24,11 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      *
      */
     public LinkedListDeque61B() {
+        // Assuming this is the way to go...
         this.sentinel = new Node(sentinel, sentinel, null);
-        // This intuitively seems more circular. Both previous and next point back to
-        // the sentinel object...
-        // But the diagram implies the next node points to the previous.
-        // Clearly, I am not sure. What I am sure of is that is configuration does not
-        // cause a NullPointerException.
-        // Just going to have to try it, possibly f it up, accept it's wrong, and start again.
     }
 
-    // Thankfully found a new piercing parlor super close to my home that can accommodate me.
-    // https://www.youtube.com/watch?v=iWz9H3MPgqI
-    // And my poolish looks very happy.
+    // My bread turned out great!
 
     /**
      *
@@ -44,14 +37,17 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     @Override
     // "addFirst and addLast may not use looping or recursion. A single add operation must take "constant time,..."
     public void addFirst(T x) {
-        // Insert after the sentinel:
-            // make new node
-            // assign new node's next to the current first
-            // assign current first's prev to new node
-            // assign new node's previous to sentinel
-            // assign sentinel next to new node
+        // create a new node that assigns the sentinel as the prev and sentinel.next as the next.
+        // Node first = new Node(sentinel, sentinel.next, x);
 
-        // but what about updating the sentinel's prev?
+        // now, one needs to point sentinel.next.prev in the right direction.
+        // sentinel.next.prev = first;
+        // and sentinel.next in the right direction as well.
+        // sentinel.next = first;
+
+        // and that's it?
+        // kinda assumed I'd need a pointer (okay, okay, object reference) for this but didn't end up using
+        // one... yet. maybe this is a jumbled mess.
     }
 
     /**
