@@ -24,20 +24,19 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      *
      */
     public LinkedListDeque61B() {
-        // This is wrong, for several reasons.
-        // While this does not throw an error, the complier can't find the complete sentinel object
-        // while creating sentinel, thus causing the NullPointerException I ran into yesterday in
-        // addFirst(...). I guess the compiler sees the argument, can't quite find the object requested
-        // but knows about 'this.sentinel' so it doesn't throw, but becomes visible later.
-        // this.sentinel = new Node(sentinel, sentinel, null);
-
         this.sentinel = new Node(null, null, null);
-        // So, prev and next need to be assigned after the sentinel object is created.
-        // Now, are they assigned to the sentinel node?
+        // My intuition was right: pretty sure next and prev should point to sentinel.
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
 
-        // Or to each other? No, right?
+        // If you do something like this...
+        // sentinel.next = sentinel;
+        // sentinel.prev = sentinel.next;
+        // Calling next will need to hop two times which is unnecessary and probably will introduce
+        // bugs in the future I cannot fathom right now.
+
+        // Hell no. I think this would just be two nodes pointing at null.
+        // Basically wouldn't do anything assuming you commented out 29 and 30.
         // sentinel.prev = sentinel.next;
     }
 
@@ -46,8 +45,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @param x item to add
      */
     @Override
-    // "addFirst and addLast may not use looping or recursion. A single add operation must take "constant time,..."
     public void addFirst(T x) {
+        // Now, it's time to work on this...
     }
 
     /**
