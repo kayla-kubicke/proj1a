@@ -25,19 +25,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     public LinkedListDeque61B() {
         this.sentinel = new Node(null, null, null);
-        // My intuition was right: pretty sure next and prev should point to sentinel.
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
-
-        // If you do something like this...
-        // sentinel.next = sentinel;
-        // sentinel.prev = sentinel.next;
-        // Calling next will need to hop two times which is unnecessary and probably will introduce
-        // bugs in the future I cannot fathom right now.
-
-        // Hell no. I think this would just be two nodes pointing at null.
-        // Basically wouldn't do anything assuming you commented out 29 and 30.
-        // sentinel.prev = sentinel.next;
     }
 
     /**
@@ -46,7 +35,20 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-        // Now, it's time to work on this...
+        // https://www.youtube.com/watch?v=bpOSxM0rNPM
+        // Make the new node.
+        // first's prev needs to point to the sentinel, that's for sure.
+        // first's next should point to whatever sentinel.next points to.
+        // Node first = new Node(this.sentinel, this.sentinel.next, x);
+
+        // Now, one needs to deal with sentinel's prev and next.
+        // sentinel.next = first;
+
+        // sentinel.prev only needs to be updated if it's the only node, right?
+        // if(sentinel.prev == sentinel) {
+            // sentinel.prev = first;
+        // }
+        // https://www.youtube.com/watch?v=pI3f_p1cMuE
     }
 
     /**
