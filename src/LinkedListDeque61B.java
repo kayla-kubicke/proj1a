@@ -35,20 +35,20 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-        // https://www.youtube.com/watch?v=bpOSxM0rNPM
-        // Make the new node.
-        // first's prev needs to point to the sentinel, that's for sure.
-        // first's next should point to whatever sentinel.next points to.
         // Node first = new Node(this.sentinel, this.sentinel.next, x);
 
         // Now, one needs to deal with sentinel's prev and next.
         // sentinel.next = first;
 
+        // NO.
         // sentinel.prev only needs to be updated if it's the only node, right?
         // if(sentinel.prev == sentinel) {
             // sentinel.prev = first;
         // }
-        // https://www.youtube.com/watch?v=pI3f_p1cMuE
+        // NO, NO, NO.
+
+        // I think this is right...
+        // sentinel.next.prev = first;
     }
 
     /**
@@ -57,6 +57,11 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
+        // And I think this is also...
+        // Node last = new Node(sentinel.prev, sentinel, x);
+
+        // sentinel.prev = last;
+        // sentinel.prev.next = last;
     }
 
     /**
