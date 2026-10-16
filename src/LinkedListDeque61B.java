@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @param <T>
@@ -6,9 +7,7 @@ import java.util.List;
 public class LinkedListDeque61B<T> implements Deque61B<T> {
      private Node sentinel;
 
-    // static too?
-        // Nested classes declared static can not access methods owned by outer class.
-    public class Node {
+    public static class Node {
          public Node prev;
          public Node next;
          public T data;
@@ -37,17 +36,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     public void addFirst(T x) {
         // Node first = new Node(this.sentinel, this.sentinel.next, x);
 
-        // Now, one needs to deal with sentinel's prev and next.
         // sentinel.next = first;
-
-        // NO.
-        // sentinel.prev only needs to be updated if it's the only node, right?
-        // if(sentinel.prev == sentinel) {
-            // sentinel.prev = first;
-        // }
-        // NO, NO, NO.
-
-        // I think this is right...
         // sentinel.next.prev = first;
     }
 
@@ -57,7 +46,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
-        // And I think this is also...
         // Node last = new Node(sentinel.prev, sentinel, x);
 
         // sentinel.prev = last;
@@ -70,7 +58,22 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public List<T> toList() {
-        return List.of();
+        List<T> returnList = new ArrayList<>;
+
+        // Node node = sentinel.next;
+
+        // iterate over the nodes and add them to returnList during each iteration.
+        // while(node.next != sentinel) {
+            // append to returnList.
+            // returnList.add(node.data);
+
+            // update node.
+            // node = node.next;
+        // }
+
+        // return List.of();
+        // https://www.youtube.com/watch?v=02483qMtL4s
+        return returnList;
     }
 
     /**
