@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class LinkedListDeque61B<T> implements Deque61B<T> {
      private Node sentinel;
 
-    public static class Node {
+    public class Node {
          public Node prev;
          public Node next;
          public T data;
@@ -26,6 +26,18 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         this.sentinel = new Node(null, null, null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
+        // The number of mistakes I've made on this project is making me gloomy...
+        // https://www.youtube.com/watch?v=GNWw2NFo_ec
+        // https://www.youtube.com/watch?v=qkNa5xzOe5U
+        // https://www.youtube.com/watch?v=Ty-bLdf8Bsw
+        // https://www.youtube.com/watch?v=52ZdwZ7Ig-8
+
+        // Ugh... okay, that's enough wallowing. Time to try again.
+        // Sidenote: These Days is the perfect sad song. The lyrics are perfectly miserable.
+
+
+        // Pretty sure the constructor is fine. The sentinel node of a circular doubly linked
+        // list should just point at itself, prev and next are pointing back at the sentinel. Fine.
     }
 
     /**
@@ -34,10 +46,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-        // Node first = new Node(this.sentinel, this.sentinel.next, x);
-
-        // sentinel.next = first;
-        // sentinel.next.prev = first;
+        // Now, let's start here.
     }
 
     /**
@@ -46,10 +55,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
-        // Node last = new Node(sentinel.prev, sentinel, x);
-
-        // sentinel.prev = last;
-        // sentinel.prev.next = last;
     }
 
     /**
@@ -58,22 +63,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public List<T> toList() {
-        List<T> returnList = new ArrayList<>;
-
-        // Node node = sentinel.next;
-
-        // iterate over the nodes and add them to returnList during each iteration.
-        // while(node.next != sentinel) {
-            // append to returnList.
-            // returnList.add(node.data);
-
-            // update node.
-            // node = node.next;
-        // }
-
-        // return List.of();
-        // https://www.youtube.com/watch?v=02483qMtL4s
-        return returnList;
     }
 
     /**
