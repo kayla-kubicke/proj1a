@@ -26,18 +26,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         this.sentinel = new Node(null, null, null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
-        // The number of mistakes I've made on this project is making me gloomy...
-        // https://www.youtube.com/watch?v=GNWw2NFo_ec
-        // https://www.youtube.com/watch?v=qkNa5xzOe5U
-        // https://www.youtube.com/watch?v=Ty-bLdf8Bsw
-        // https://www.youtube.com/watch?v=52ZdwZ7Ig-8
-
-        // Ugh... okay, that's enough wallowing. Time to try again.
-        // Sidenote: These Days is the perfect sad song. The lyrics are perfectly miserable.
-
-
-        // Pretty sure the constructor is fine. The sentinel node of a circular doubly linked
-        // list should just point at itself, prev and next are pointing back at the sentinel. Fine.
+        // Also, I'll be Your Mirror makes me kinda sad too but in an extremely sweet, loving way.
+        // In a hopeful, resilient way.
     }
 
     /**
@@ -46,7 +36,32 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-        // Now, let's start here.
+        // Let's just start by simply instantiating the new node with the given data.
+        Node first = new Node(null, null, x);
+
+        // I know first's prev needs to point to sentinel.
+        // This will always be the case, given it is the first node in the list.
+        first.prev = sentinel;
+
+        // And I know first's next needs to point to whatever sentinel's next is pointing to.
+        first.next = sentinel.next;
+
+        // So, first should be all set to go.
+        // Now I need to deal with repointing sentinel's prev and next.
+
+        // sentinel's next is obvious; it just needs to point at first.
+        // I'm just going to go ahead and set that.
+        sentinel.next = first;
+
+        // But sentinel's prev should point to...
+        // the last node in the list, obviously.
+        // And one can access that by...
+
+        // Was my original thinking correct?
+        // sentinel's prev only needs to be updated if sentinel is the only node in the list.
+        if(sentinel.prev == sentinel) {
+            sentinel.prev = first;
+        }
     }
 
     /**
@@ -63,6 +78,20 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public List<T> toList() {
+        List<T> returnList = new ArrayList<>();
+
+        Node node = sentinel.next;
+
+        // Ah, moved the guiding node before I should have.
+        // https://giphy.com/gifs/thesimpsons-smrt-im-smart-i-am-so-oOggzV7YqOw1UpLTIY
+        while(node != sentinel) {
+            // append to returnList.
+            returnList.add(node.data);
+
+            // update node.
+            node = node.next;
+        }
+        return returnList;
     }
 
     /**
