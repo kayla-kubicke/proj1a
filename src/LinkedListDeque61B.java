@@ -35,24 +35,11 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     @Override
     public void addFirst(T x) {
         Node first = new Node(null, null, x);
-        // I know I could do this all in one line, but I'll keep this for now.
         first.prev = sentinel;
         first.next = sentinel.next;
 
-        // Repoint the current first's prev node before one does anything else.
         sentinel.next.prev = first;
-        // Now, one can repoint sentinel's next.
         sentinel.next = first;
-
-        // No, don't do this.
-            // !!!Four pointers need to always be repointed!!!
-            // Line 42 always correctly repoints "this" pointer and doesn't drop any conditions.
-        // if(sentinel.prev == sentinel) {
-            // sentinel.prev = first;
-        // }
-        // Fk, I finally got it all by myself. So easy once you know it... like all things in life.
-        // I'm just going to play DOOM for the rest of the day.
-        // (Yes, I still play 2016 DOOM; it's just so relaxing.)
     }
 
     /**
@@ -61,14 +48,10 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
-        // I'll do the same here; I'll just simply create the new node.
         Node last = new Node(null, null, x);
-
-        // Deal with last's prev and next.
         last.next = sentinel;
         last.prev = sentinel.prev;
 
-        // Now, deal with the current last's next and sentinel's prev.
         sentinel.prev.next = last;
         sentinel.prev = last;
     }
