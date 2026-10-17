@@ -26,8 +26,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         this.sentinel = new Node(null, null, null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
-        // Also, I'll be Your Mirror makes me kinda sad too but in an extremely sweet, loving way.
-        // In a hopeful, resilient way.
     }
 
     /**
@@ -36,32 +34,25 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addFirst(T x) {
-        // Let's just start by simply instantiating the new node with the given data.
         Node first = new Node(null, null, x);
-
-        // I know first's prev needs to point to sentinel.
-        // This will always be the case, given it is the first node in the list.
+        // I know I could do this all in one line, but I'll keep this for now.
         first.prev = sentinel;
-
-        // And I know first's next needs to point to whatever sentinel's next is pointing to.
         first.next = sentinel.next;
 
-        // So, first should be all set to go.
-        // Now I need to deal with repointing sentinel's prev and next.
-
-        // sentinel's next is obvious; it just needs to point at first.
-        // I'm just going to go ahead and set that.
+        // Repoint the current first's prev node before one does anything else.
+        sentinel.next.prev = first;
+        // Now, one can repoint sentinel's next.
         sentinel.next = first;
 
-        // But sentinel's prev should point to...
-        // the last node in the list, obviously.
-        // And one can access that by...
-
-        // Was my original thinking correct?
-        // sentinel's prev only needs to be updated if sentinel is the only node in the list.
-        if(sentinel.prev == sentinel) {
-            sentinel.prev = first;
-        }
+        // No, don't do this.
+            // !!!Four pointers need to always be repointed!!!
+            // Line 42 always correctly repoints "this" pointer and doesn't drop any conditions.
+        // if(sentinel.prev == sentinel) {
+            // sentinel.prev = first;
+        // }
+        // Fk, I finally got it all by myself. So easy once you know it... like all things in life.
+        // I'm just going to play DOOM for the rest of the day.
+        // (Yes, I still play 2016 DOOM; it's just so relaxing.)
     }
 
     /**
@@ -70,6 +61,16 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public void addLast(T x) {
+        // I'll do the same here; I'll just simply create the new node.
+        Node last = new Node(null, null, x);
+
+        // Deal with last's prev and next.
+        last.next = sentinel;
+        last.prev = sentinel.prev;
+
+        // Now, deal with the current last's next and sentinel's prev.
+        sentinel.prev.next = last;
+        sentinel.prev = last;
     }
 
     /**
@@ -79,18 +80,14 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     @Override
     public List<T> toList() {
         List<T> returnList = new ArrayList<>();
-
         Node node = sentinel.next;
 
-        // Ah, moved the guiding node before I should have.
-        // https://giphy.com/gifs/thesimpsons-smrt-im-smart-i-am-so-oOggzV7YqOw1UpLTIY
         while(node != sentinel) {
-            // append to returnList.
             returnList.add(node.data);
 
-            // update node.
             node = node.next;
         }
+
         return returnList;
     }
 
