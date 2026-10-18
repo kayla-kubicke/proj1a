@@ -79,6 +79,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @return
      */
     @Override
+    // Must take constant time.
     public boolean isEmpty() {
         return false;
     }
@@ -88,6 +89,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @return
      */
     @Override
+    // Must take constant time.
+    // ?Can one write a helper that reduces the code in both toList() and size()?
     public int size() {
         return 0;
     }

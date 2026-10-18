@@ -57,4 +57,28 @@ public class LinkedListDeque61BTest {
      }
 
     // Below, you'll write your own tests for LinkedListDeque61B.
+    // "Write one or more tests for isEmpty and size. Run them and
+    // verify that they fail. Your test(s) should verify more than one interesting case..."
+
+    // I went through a phase a few years ago where I bought odd dvds from second hand shops and eBay.
+    // I was going through my collection and just found Something Weird.
+    // Maybe I'll watch it tonight? It is October after all...
+    // Kinda concerned to see what is in my other dvd storage box.
+
+    // isEmpty() Test Suite
+        // Hm... I'll make a list of cases to check.
+        //
+        // An empty list simply contains the sentinel should return true.
+        // A list with one or more nodes that are not the sentinel should return false.
+        // Now, on to the edge cases:
+        // This always requires some thought. So, let's start with null.
+        // A null list should return true. (?)
+            // As to ask, should a null list be treated the same as a list with just a sentinel node?
+            // I believe so.
+        // A single node (with a sentinel, obviously) should return false.
+        // Is a list of nodes will their data pointing to null considered empty?
+            // Is the definition of an empty list about the nodes, data, or must one consider both?
+            // Research time.
+
+    // size() Test Suite
 }
