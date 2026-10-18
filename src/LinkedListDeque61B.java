@@ -6,6 +6,7 @@ import java.util.ArrayList;
  */
 public class LinkedListDeque61B<T> implements Deque61B<T> {
      private Node sentinel;
+     // Include cached size? Not required for assignment, as far as I know.
 
     public class Node {
          public Node prev;
