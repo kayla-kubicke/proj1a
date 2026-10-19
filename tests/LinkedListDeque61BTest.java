@@ -60,19 +60,21 @@ public class LinkedListDeque61BTest {
     // "Write one or more tests for isEmpty and size. Run them and
     // verify that they fail. Your test(s) should verify more than one interesting case..."
 
-    // isEmpty() Test Suite
-    // Is the definition of an empty list about the nodes, data, or must one consider both?
-        // It's just about the presence (or lack) of nodes.
+    // START: isEmpty() Test Suite
+    // An empty list; just the sentinel node
+    @Test
+    /** Tests if isEmpty() returns true on a list only containing a sentinel. */
+    public void isEmptyEmptyListReturnsTrue() {
+         Deque61B<String> justaLonelySentinel = new LinkedListDeque61B<>();
 
-        // Cases to check:
-            // An empty list; just the sentinel node
+         assertThat(justaLonelySentinel.isEmpty()).isTrue();
+    }
             // A list with more than one node
-                // Now, on to the edge cases:
-                // I *could* do transitioning lists, but I am someone who likes to keep my unit tests
-                // restricted to only the given method unless it's just not possible.
-                    // null; "true empty"
-                    // Just one node (besides the sentinel)
-                    // One node with null data
+            // null; "true empty"
+            // Just one node (besides the sentinel)
+            // One node with null data
+
+    // END: isEmpty() Test Suite
 
     // size() Test Suite
 }
