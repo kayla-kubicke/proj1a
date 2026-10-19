@@ -84,7 +84,20 @@ public class LinkedListDeque61BTest {
 
     }
 
+    // NO.
     // null; "true empty"
+    // Nope, just will just throw NullPointerException.
+    // Can't call isEmpty() on null cause it's not a Deque61B object.
+    // null is not a primative or object, it's null.
+    // @Test
+    // public void isEmptyReturnsTrueForNull() {
+        // Deque61B<String> testList = new LinkedListDeque61B<>();
+        // testList = null;
+
+        // assertThis.(testList.isEmpty()).isTrue();
+    // }
+    // NO.
+
     // Just one node (besides the sentinel)
     // One node with null data
 
