@@ -56,10 +56,6 @@ public class LinkedListDeque61BTest {
          assertThat(lld1.toList()).containsExactly(-2, -1, 0, 1, 2).inOrder();
      }
 
-    // Below, you'll write your own tests for LinkedListDeque61B.
-    // "Write one or more tests for isEmpty and size. Run them and
-    // verify that they fail. Your test(s) should verify more than one interesting case..."
-
     // START: isEmpty() Test Suite
     // An empty list; just the sentinel node
     @Test
@@ -115,7 +111,6 @@ public class LinkedListDeque61BTest {
     // Oh, wait, I can check that it throws the error. But I think that is beyond the scope of the
     // given project.
 
-    // Just one node (besides the sentinel)
     @Test
     /** Tests if isEmpty() returns false on a list with a single node containing String data. */
     public void isEmptySingleNodeStringListReturnsFalse() {
@@ -137,7 +132,29 @@ public class LinkedListDeque61BTest {
     }
 
     // One node with null data
+    @Test
+    /** Tests if isEmpty() returns false for a single node list containing null data. */
+    public void isEmptySingleNodeListContainingNullDataReturnsFalse() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        testList.addFirst(null);
+
+        assertThat(testList.isEmpty()).isFalse();
+    }
+
+    @Test
+    /** Tests if isEmpty() returns false for a nonempty list containing only null data. */
+    public void isEmptyNonEmptyListContainingOnlyNullDataReturnsFalse() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst(null);
+        testList.addFirst(null);
+        testList.addFirst(null);
+        testList.addFirst(null);
+
+        assertThat(testList.isEmpty()).isFalse();
+
+    }
     // END: isEmpty() Test Suite
 
     // size() Test Suite
