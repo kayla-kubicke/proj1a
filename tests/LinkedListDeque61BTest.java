@@ -71,14 +71,28 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Tests if isEmpty() returns false on a list with four nodes. */
-    public void isEmptyNonEmptyListReturnsFalse() {
+    /** Tests if isEmpty() returns false on a list with four nodes containing String data. */
+    public void isEmptyNonEmptyStringListReturnsFalse() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
         testList.addFirst("Anita");
         testList.addLast("Roger");
         testList.addFirst("Pongo");
         testList.addLast("Perdita");
+
+        assertThat(testList.isEmpty()).isFalse();
+
+    }
+
+    @Test
+    /** Tests if isEmpty() returns false on a list with four nodes containing Integer data. */
+    public void isEmptyNonEmptyIntegerListReturnsFalse() {
+        Deque61B<Integer> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst(3);
+        testList.addLast(7);
+        testList.addFirst(9);
+        testList.addLast(14);
 
         assertThat(testList.isEmpty()).isFalse();
 
@@ -98,7 +112,30 @@ public class LinkedListDeque61BTest {
     // }
     // NO.
 
+    // Oh, wait, I can check that it throws the error. But I think that is beyond the scope of the
+    // given project.
+
     // Just one node (besides the sentinel)
+    @Test
+    /** Tests if isEmpty() returns false on a list with a single node containing String data. */
+    public void isEmptySingleNodeStringListReturnsFalse() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst("Anita");
+
+        assertThat(testList.isEmpty()).isFalse();
+    }
+
+    @Test
+    /** Tests if isEmpty() returns false on a list with a single node containing Integer data. */
+    public void isEmptySingleNodeIntegerListReturnsFalse() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst("Anita");
+
+        assertThat(testList.isEmpty()).isFalse();
+    }
+
     // One node with null data
 
     // END: isEmpty() Test Suite
