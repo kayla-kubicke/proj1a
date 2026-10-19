@@ -69,10 +69,24 @@ public class LinkedListDeque61BTest {
 
          assertThat(justaLonelySentinel.isEmpty()).isTrue();
     }
-            // A list with more than one node
-            // null; "true empty"
-            // Just one node (besides the sentinel)
-            // One node with null data
+
+    @Test
+    /** Tests if isEmpty() returns false on a list with four nodes. */
+    public void isEmptyNonEmptyListReturnsFalse() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst("Anita");
+        testList.addLast("Roger");
+        testList.addFirst("Pongo");
+        testList.addLast("Perdita");
+
+        assertThat(testList.isEmpty()).isFalse();
+
+    }
+
+    // null; "true empty"
+    // Just one node (besides the sentinel)
+    // One node with null data
 
     // END: isEmpty() Test Suite
 
