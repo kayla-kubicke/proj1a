@@ -82,6 +82,9 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     @Override
     // Must take constant time.
     public boolean isEmpty() {
+        if(sentinel.next == sentinel) {
+            return true;
+        }
         return false;
     }
 
