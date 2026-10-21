@@ -80,9 +80,10 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @return
      */
     @Override
-    // Must take constant time.
     public boolean isEmpty() {
-        if(sentinel.next == sentinel) {
+        // Added the extra check in case the sentinel
+        // is malformed, but at that point... eh, that might be unnecessary.
+        if(sentinel.next == sentinel && sentinel.prev == sentinel) {
             return true;
         }
         return false;
@@ -94,8 +95,23 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     // Must take constant time.
-    // ?Can one write a helper that reduces the code in both toList() and size()?
     public int size() {
+        // Check if the list is empty.
+        // if(this.isEmpty()) {
+            // return 0;
+        // }
+
+        // Make dummy tracker node and counter.
+        // Node node = this.sentinel.next; // Do not need this, right?
+        // int counter = 0;
+
+        // while(node != sentinel) {
+            // counter++;
+            // node = node.next;
+        // }
+
+        // return counter;
+
         return 0;
     }
 
