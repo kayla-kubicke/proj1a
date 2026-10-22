@@ -70,6 +70,7 @@ public class LinkedListDeque61BTest {
     public void isEmptyNonEmptyStringListReturnsFalse() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        // NOTE: Depends on other methods
         testList.addFirst("Anita");
         testList.addLast("Roger");
         testList.addFirst("Pongo");
@@ -84,6 +85,7 @@ public class LinkedListDeque61BTest {
     public void isEmptyNonEmptyIntegerListReturnsFalse() {
         Deque61B<Integer> testList = new LinkedListDeque61B<>();
 
+        // NOTE: Depends on other methods
         testList.addFirst(3);
         testList.addLast(7);
         testList.addFirst(9);
@@ -98,6 +100,7 @@ public class LinkedListDeque61BTest {
     public void isEmptySingleNodeStringListReturnsFalse() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        // NOTE: Depends on other methods
         testList.addFirst("Anita");
 
         assertThat(testList.isEmpty()).isFalse();
@@ -108,17 +111,18 @@ public class LinkedListDeque61BTest {
     public void isEmptySingleNodeIntegerListReturnsFalse() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        // NOTE: Depends on other methods
         testList.addFirst("Anita");
 
         assertThat(testList.isEmpty()).isFalse();
     }
 
-    // One node with null data
     @Test
     /** Tests if isEmpty() returns false for a single node list containing null data. */
     public void isEmptySingleNodeListContainingNullDataReturnsFalse() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        // NOTE: Depends on other methods
         testList.addFirst(null);
 
         assertThat(testList.isEmpty()).isFalse();
@@ -129,6 +133,7 @@ public class LinkedListDeque61BTest {
     public void isEmptyNonEmptyListContainingOnlyNullDataReturnsFalse() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        // NOTE: Depends on other methods
         testList.addFirst(null);
         testList.addFirst(null);
         testList.addFirst(null);
@@ -139,11 +144,112 @@ public class LinkedListDeque61BTest {
     // END: isEmpty() Test Suite
 
     // START: size() Test Suite
-        // Test cases:
-            // Just the sentinel
-            // Single node
-            // "Big" list (10 or 11)
-            // "Little" list (3 or 4)
-            // Nonempty list with only null data
+    @Test
+    /** */
+    public void sizeReturnsZeroIfListIsOnlySentinel() {
+        Deque61B<String> justaLonelySentinel = new LinkedListDeque61B<>();
+
+        assertThat(justaLonelySentinel.size()).isEqualTo(0);
+    }
+
+    @Test
+    /** */
+    public void sizeReturnsOneIfStringListIsSingleNode() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+
+        assertThat(testList.size()).isEqualTo(1);
+    }
+
+    @Test
+    /** */
+    public void sizeReturnsOneIfIntegerListIsSingleNode() {
+        Deque61B<Integer> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst(101);
+
+        assertThat(testList.size()).isEqualTo(1);
+    }
+
+    @Test
+    /** */
+    public void sizeReturnsTenOnStringListContainingTenNodes() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine"); // Oh hell yes, maybe linguine and clams this weekend???
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
+
+        assertThat(testList.size()).isEqualTo(10);
+    }
+
+    @Test
+    public void sizeReturnsTenOnIntegerListContainingTenNodes() {
+        Deque61B<Integer> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst(1);
+        testList.addLast(2);
+        testList.addFirst(3);
+        testList.addLast(4);
+        testList.addFirst(5);
+        testList.addLast(6);
+        testList.addFirst(7);
+        testList.addLast(8);
+        testList.addFirst(9);
+        testList.addLast(10);
+
+        assertThat(testList.size()).isEqualTo(10);
+    }
+    // https://www.youtube.com/watch?v=lLikCHwbEzU
+
+    @Test
+    /** */
+    public void sizeReturnsThreeOnStringListContainingThreeNodes() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+            // NOTE: Depends on other methods
+            testList.addFirst("rigatoni");
+            testList.addLast("penne");
+            testList.addFirst("spaghetti");
+
+            assertThat(testList.size()).isEqualTo(3);
+    }
+
+    @Test
+    public void sizeReturnsThreeOnIntegerListContainingThreeNodes() {
+        Deque61B<Integer> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst(1);
+        testList.addLast(2);
+        testList.addFirst(3);
+
+        assertThat(testList.size()).isEqualTo(3);
+    }
+
+    @Test
+    public void sizeReturnsFourOnStringListContainingOnlyNullData() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst(null);
+        testList.addLast(null);
+        testList.addFirst(null);
+        testList.addLast(null);
+
+        assertThat(testList.size()).isEqualTo(4);
+    }
     // END: size() Test Suite
 }
