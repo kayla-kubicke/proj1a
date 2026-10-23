@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class LinkedListDeque61B<T> implements Deque61B<T> {
      private Node sentinel;
-     // Include cached size? Not required for assignment, as far as I know.
+     private int size;
 
     public class Node {
          public Node prev;
@@ -27,6 +27,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         this.sentinel = new Node(null, null, null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
+        size = 0;
     }
 
     /**
@@ -41,6 +42,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
         sentinel.next.prev = first;
         sentinel.next = first;
+
+        size++;
     }
 
     /**
@@ -55,6 +58,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
         sentinel.prev.next = last;
         sentinel.prev = last;
+
+        size++;
     }
 
     /**
@@ -94,35 +99,9 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @return
      */
     @Override
-    // Must take constant time, but currently linear.
-    // Uh... size should be a cached variable?
-    // (As to say, I should build a way to count and record
-    // the size when the object is created.)
-    // Retrieving that would be constant.
-    // That's really the only possible solution, right?
     public int size() {
-         // Check if the list is empty.
-         if(this.isEmpty()) {
-             return 0;
-         }
-
-         // Make dummy tracker node and counter.
-         Node node = sentinel.next;
-         int counter = 0;
-
-         // Linear... :/
-         while(node != sentinel) {
-             counter++;
-             node = node.next;
-         }
-
-         return counter;
-
-         // Should really just be:
-        // return size;
+         return size;
     }
-    // https://www.youtube.com/watch?v=Nguqp36OAxw
-    // Letters to Cleo cover: https://www.youtube.com/watch?v=OeCgn6Yr9yg
 
     /**
      *
@@ -130,6 +109,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public T removeFirst() {
+        // size--;
         return null;
     }
 
@@ -139,6 +119,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public T removeLast() {
+        // size--;
         return null;
     }
 
