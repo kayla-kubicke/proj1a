@@ -94,26 +94,35 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @return
      */
     @Override
-    // Must take constant time.
+    // Must take constant time, but currently linear.
+    // Uh... size should be a cached variable?
+    // (As to say, I should build a way to count and record
+    // the size when the object is created.)
+    // Retrieving that would be constant.
+    // That's really the only possible solution, right?
     public int size() {
-        // Check if the list is empty.
-        // if(this.isEmpty()) {
-            // return 0;
-        // }
+         // Check if the list is empty.
+         if(this.isEmpty()) {
+             return 0;
+         }
 
-        // Make dummy tracker node and counter.
-        // Node node = this.sentinel.next; // Do not need this, right?
-        // int counter = 0;
+         // Make dummy tracker node and counter.
+         Node node = sentinel.next;
+         int counter = 0;
 
-        // while(node != sentinel) {
-            // counter++;
-            // node = node.next;
-        // }
+         // Linear... :/
+         while(node != sentinel) {
+             counter++;
+             node = node.next;
+         }
 
-        // return counter;
+         return counter;
 
-        return 0;
+         // Should really just be:
+        // return size;
     }
+    // https://www.youtube.com/watch?v=Nguqp36OAxw
+    // Letters to Cleo cover: https://www.youtube.com/watch?v=OeCgn6Yr9yg
 
     /**
      *

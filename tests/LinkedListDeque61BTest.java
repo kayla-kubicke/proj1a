@@ -187,7 +187,7 @@ public class LinkedListDeque61BTest {
         testList.addFirst("radiatori");
         testList.addLast("trumpet");
         testList.addFirst("fusilli");
-        testList.addLast("linguine"); // Oh hell yes, maybe linguine and clams this weekend???
+        testList.addLast("linguine");
         testList.addFirst("lasagna");
         testList.addLast("ziti");
 
@@ -212,7 +212,6 @@ public class LinkedListDeque61BTest {
 
         assertThat(testList.size()).isEqualTo(10);
     }
-    // https://www.youtube.com/watch?v=lLikCHwbEzU
 
     @Test
     /** */
