@@ -259,16 +259,17 @@ public class LinkedListDeque61BTest {
     public void getReturnsExpectedDataForValidIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
+        // Ha! I had the first/last configuration. Oops!!!
         // NOTE: Depends on other methods
         testList.addFirst("rigatoni");
         testList.addLast("penne");
-        testList.addFirst("spaghetti");
+        testList.addLast("spaghetti");
         testList.addLast("angel");
-        testList.addFirst("radiatori");
+        testList.addLast("radiatori");
         testList.addLast("trumpet");
-        testList.addFirst("fusilli");
+        testList.addLast("fusilli");
         testList.addLast("linguine");
-        testList.addFirst("lasagna");
+        testList.addLast("lasagna");
         testList.addLast("ziti");
 
         assertThat(testList.get(5)).isEqualTo("trumpet");
@@ -336,13 +337,13 @@ public class LinkedListDeque61BTest {
         // NOTE: Depends on other methods
         testList.addFirst("rigatoni");
         testList.addLast("penne");
-        testList.addFirst("spaghetti");
+        testList.addLast("spaghetti");
         testList.addLast("angel");
-        testList.addFirst("radiatori");
+        testList.addLast("radiatori");
         testList.addLast("trumpet");
-        testList.addFirst("fusilli");
+        testList.addLast("fusilli");
         testList.addLast("linguine");
-        testList.addFirst("lasagna");
+        testList.addLast("lasagna");
         testList.addLast("ziti");
 
         assertThat(testList.get(0)).isEqualTo("rigatoni");
@@ -356,16 +357,16 @@ public class LinkedListDeque61BTest {
         // NOTE: Depends on other methods
         testList.addFirst("rigatoni");
         testList.addLast("penne");
-        testList.addFirst("spaghetti");
+        testList.addLast("spaghetti");
         testList.addLast("angel");
-        testList.addFirst("radiatori");
+        testList.addLast("radiatori");
         testList.addLast("trumpet");
-        testList.addFirst("fusilli");
+        testList.addLast("fusilli");
         testList.addLast("linguine");
-        testList.addFirst("lasagna");
+        testList.addLast("lasagna");
         testList.addLast("ziti");
 
-        assertThat(testList.get(-1)).isEqualTo("penne");
+        assertThat(testList.get(1)).isEqualTo("penne");
     }
     // index: last node
     @Test
@@ -376,13 +377,13 @@ public class LinkedListDeque61BTest {
         // NOTE: Depends on other methods
         testList.addFirst("rigatoni");
         testList.addLast("penne");
-        testList.addFirst("spaghetti");
+        testList.addLast("spaghetti");
         testList.addLast("angel");
-        testList.addFirst("radiatori");
+        testList.addLast("radiatori");
         testList.addLast("trumpet");
-        testList.addFirst("fusilli");
+        testList.addLast("fusilli");
         testList.addLast("linguine");
-        testList.addFirst("lasagna");
+        testList.addLast("lasagna");
         testList.addLast("ziti");
 
         assertThat(testList.get(9)).isEqualTo("ziti");
