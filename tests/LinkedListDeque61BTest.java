@@ -250,23 +250,143 @@ public class LinkedListDeque61BTest {
 
         assertThat(testList.size()).isEqualTo(4);
     }
+    // ADD: Comments
     // END: size() Test Suite
 
     // START: get Test Suite
-        // Test cases:
-            // valid index
-            // invalid index
-                // too big
-                // negative
-            // data returned is null? (just check the data is returned correctly.)
-            // Edge cases:
-                // index: 0
-                // index: 1
-                // index: last node
+    @Test
+    /** Valid index */
+    public void getReturnsExpectedDataForValidIndex() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
 
-    // <3 Can't stop replaying. <3
-    // https://www.youtube.com/watch?v=eAOIpDUDGX4
-    // Also, oldie but goodie: https://www.youtube.com/watch?v=AZdyD8yFQaU
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine");
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
 
+        assertThat(testList.get(5)).isEqualTo("trumpet");
+    }
+
+    @Test
+    /** Index greater than size */
+    public void getReturnsNullForIndexGreaterThanSize() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine");
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
+
+        assertThat(testList.get(15)).isEqualTo(null);
+    }
+
+    @Test
+    /** Negative */
+    public void getReturnsNullForNegativeIndex() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine");
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
+
+        assertThat(testList.get(-1)).isEqualTo(null);
+    }
+
+    @Test
+    /** Data returned is simply null */
+    public void getReturnsNullForNodeWithNullData() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst(null);
+        testList.addLast(null);
+        testList.addFirst(null);
+        testList.addLast(null);
+
+        assertThat(testList.get(2)).isEqualTo(null);
+    }
+
+    @Test
+    /** Index zero */
+    public void getReturnsExpectedDataForIndexZero() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine");
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
+
+        assertThat(testList.get(0)).isEqualTo("rigatoni");
+    }
+
+    @Test
+    /** Index one */
+    public void getReturnsExpectedDataForIndexOne() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine");
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
+
+        assertThat(testList.get(-1)).isEqualTo("penne");
+    }
+    // index: last node
+    @Test
+    /** Last index */
+    public void getReturnsExpectedDataForLastIndex() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addFirst("spaghetti");
+        testList.addLast("angel");
+        testList.addFirst("radiatori");
+        testList.addLast("trumpet");
+        testList.addFirst("fusilli");
+        testList.addLast("linguine");
+        testList.addFirst("lasagna");
+        testList.addLast("ziti");
+
+        assertThat(testList.get(9)).isEqualTo("ziti");
+    }
+    // ADD: Update comments
     // END: get() Test Suite
 }
