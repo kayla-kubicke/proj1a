@@ -251,4 +251,22 @@ public class LinkedListDeque61BTest {
         assertThat(testList.size()).isEqualTo(4);
     }
     // END: size() Test Suite
+
+    // START: get Test Suite
+        // Test cases:
+            // valid index
+            // invalid index
+                // too big
+                // negative
+            // data returned is null? (just check the data is returned correctly.)
+            // Edge cases:
+                // index: 0
+                // index: 1
+                // index: last node
+
+    // <3 Can't stop replaying. <3
+    // https://www.youtube.com/watch?v=eAOIpDUDGX4
+    // Also, oldie but goodie: https://www.youtube.com/watch?v=AZdyD8yFQaU
+
+    // END: get() Test Suite
 }

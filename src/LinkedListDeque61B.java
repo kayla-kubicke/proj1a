@@ -124,12 +124,28 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     }
 
     /**
-     *
+     * Returns data at specified index.
      * @param index index to get
      * @return
      */
     @Override
+    // "get must use iteration."
     public T get(int index) {
+        // if(index > size || index < 0) {
+            // return null;
+        // }
+
+        // Make dummy tracker node.
+        // Node node = sentinel.next;
+        // int currentIndex = 0; // Hm... I'm assuming the list is zero indexed.
+        // Actually, I think I'm in control of that.
+
+        // while(index != currentIndex) {
+            // currentIndex++;
+            // node = node.next;
+        // }
+
+        // return node.data;
         return null;
     }
 
