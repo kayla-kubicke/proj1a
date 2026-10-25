@@ -129,7 +129,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      * @return
      */
     @Override
-    // "get must use iteration."
     public T get(int index) {
          if(index > size || index < 0) {
              return null;
@@ -137,8 +136,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
         // Make dummy tracker node.
          Node node = sentinel.next;
-         int currentIndex = 0; // Hm... I'm assuming the list is zero indexed.
-        // Actually, I think I'm in control of that.
+         int currentIndex = 0;
 
          while(index != currentIndex) {
              currentIndex++;
@@ -146,7 +144,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
          }
 
          return node.data;
-        // return null;
     }
 
     /**
