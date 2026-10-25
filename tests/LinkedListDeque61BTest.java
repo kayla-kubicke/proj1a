@@ -526,4 +526,19 @@ public class LinkedListDeque61BTest {
     }
     // ADD: Update comments
     // END: getRecursive() Test Suite
+
+    // START: removeFirst() Test Suite
+        // Test cases:
+            // just a normal list, 3-4 nodes, nonnull data
+            // just a normal list, first node's data is null (this one is kinda... unneeded)
+                // could do above with different data type
+            // Edge cases:
+                // single node
+                // two nodes (?)
+                // just the sentinel
+    // END: removeFirst() Test Suite
+
+    // START: removeLast() Test Suite
+        // Test cases will pretty much be the same as removeFirst(), except for the last node.
+    // ADD: removeLast() Test Suite
 }
