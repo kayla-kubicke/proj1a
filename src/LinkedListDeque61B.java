@@ -153,38 +153,22 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public T getRecursive(int index) {
-        // Account for the null base cases here.
-        // if(index > size || index < 0) {
-            // return null;
-        // }
+        // Account for the null base cases here before hitting the recursive helper method:
+         if(index > size || index < 0) {
+             return null;
+         }
 
-        // int currentIndex = 0;
+         int currentIndex = 0;
 
-        // return getRecursiveHelper(sentinel.next, currentIndex, index);
-        return null;
+         return getRecursiveHelper(sentinel.next, currentIndex, index);
     }
 
     public T getRecursiveHelper(Node node, int currentIndex, int index) {
         // Nonnull base case:
-        // if(currentIndex == index) {
-            // return node.data;
-        // }
+         if(currentIndex == index) {
+             return node.data;
+         }
 
-        // return getRecursiveHelper(node.next, currentIndex + 1, index);
-
-        return node.data;
+         return getRecursiveHelper(node.next, currentIndex + 1, index);
     }
-    // https://www.youtube.com/watch?v=5b5v3--3zTA
-    // You know what really scared me as a 90's kid?
-    // F'ing Beyond Belief, those first two seasons messed me up.
-
-    // Also, not a horror thing, but pbs thirteen aired* a (very) adult
-    // Barbie documentary, Barbie Nation, when I was a child and I found
-    // it... unsettling. Maybe I realized something about humanity I did
-    // not quite understand until that moment?
-    // Maybe we are always quite playful once the chores are done, even as adults?
-    // And we all just want to feel safe?
-    // https://www.youtube.com/watch?v=dFCC3a3gX1I
-    // I have not rewatched it as an adult... yet.
-    // *To be clear, it was aired late at night.
 }

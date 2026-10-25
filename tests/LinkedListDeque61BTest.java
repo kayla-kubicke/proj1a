@@ -504,7 +504,7 @@ public class LinkedListDeque61BTest {
 
         assertThat(testList.getRecursive(1)).isEqualTo("penne");
     }
-    // index: last node
+
     @Test
     /** Last index */
     public void getRecursiveReturnsExpectedDataForLastIndex() {
