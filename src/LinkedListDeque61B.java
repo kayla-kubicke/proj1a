@@ -140,7 +140,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
             // return null;
         // }
 
-        // First attempt notes.
+        // // First attempt notes.
         // Node removalNode = sentinel.prev;
 
         // sentinel.prev = removalNode.prev;
@@ -153,7 +153,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
         // size--;
         // return returnData;
-        return null;
+         return null;
     }
 
     /**
