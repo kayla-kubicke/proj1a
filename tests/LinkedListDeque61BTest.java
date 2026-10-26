@@ -528,14 +528,90 @@ public class LinkedListDeque61BTest {
     // END: getRecursive() Test Suite
 
     // START: removeFirst() Test Suite
-        // Test cases:
-            // just a normal list, 3-4 nodes, nonnull data
-            // just a normal list, first node's data is null (this one is kinda... unneeded)
-                // could do above with different data type
-            // Edge cases:
-                // single node
-                // two nodes (?)
-                // just the sentinel
+    @Test
+    /** just a normal list, 3-4 nodes, nonnull data */
+    public void removeFirstListReturnsExpectedStringDataAndList() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+        testList.addLast("spaghetti");
+        testList.addLast("angel");
+        testList.addLast("radiatori");
+        testList.addLast("trumpet");
+
+         String returnedData = testList.removeFirst();
+
+         // It does contain three tests, but they are related enough that I'm fine with it.
+        // NOTE: Contains three asserts
+         assertThat(returnedData).isEqualTo("rigatoni");
+         assertThat(testList.toList()).containsExactly("penne", "spaghetti", "angel", "radiatori", "trumpet").inOrder();
+         assertThat(testList.size()).isEqualTo(5);
+    }
+
+    @Test
+    /** just a normal list, first node's data is null (this one is kinda... unneeded) */
+    public void removeFirstListReturnsNullDataAndExpectedList() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        // NOTE: Depends on other methods
+        testList.addFirst(null);
+        testList.addLast("penne");
+        testList.addLast("spaghetti");
+        testList.addLast("angel");
+        testList.addLast("radiatori");
+        testList.addLast("trumpet");
+
+        String returnedData = testList.removeFirst();
+
+        // NOTE: Contains three asserts
+        assertThat(returnedData).isEqualTo(null);
+        assertThat(testList.toList()).containsExactly("penne", "spaghetti", "angel", "radiatori", "trumpet").inOrder();
+        assertThat(testList.size()).isEqualTo(5);
+    }
+
+    @Test
+    /** single node */
+    public void removeFirstReturnsExpectedDataAndListOfSizeOne() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst("rigatoni");
+
+        String returnedData = testList.removeFirst();
+
+        // NOTE: Contains two asserts
+        assertThat(returnedData).isEqualTo("rigatoni");
+        assertThat(testList.size()).isEqualTo(0);
+    }
+
+    @Test
+    /** just two nodes */
+    public void removeFirstReturnsExpectedListOfSizeTwo() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        testList.addFirst("rigatoni");
+        testList.addLast("penne");
+
+        String returnedData = testList.removeFirst();
+
+        // NOTE: Contains three asserts
+        assertThat(returnedData).isEqualTo("rigatoni");
+        assertThat(testList.toList()).containsExactly("penne").inOrder();
+        assertThat(testList.size()).isEqualTo(1);
+    }
+
+    @Test
+    /** just the sentinel */
+    public void removeFirstReturnsNullForEmptyList() {
+        Deque61B<String> testList = new LinkedListDeque61B<>();
+
+        String returnedData = testList.removeFirst();
+
+        // NOTE: Contains two asserts
+        assertThat(returnedData).isEqualTo(null);
+        assertThat(testList.size()).isEqualTo(0);
+    }
     // END: removeFirst() Test Suite
 
     // START: removeLast() Test Suite
