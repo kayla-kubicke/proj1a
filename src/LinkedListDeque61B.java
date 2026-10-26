@@ -118,7 +118,6 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         sentinel.next = removalNode.next;
         removalNode.next.prev = sentinel;
 
-        // Grab the data to return?
         T returnData = removalNode.data;
 
         removalNode.next = null;
@@ -136,24 +135,22 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
      */
     @Override
     public T removeLast() {
-        // if(isEmpty()) {
-            // return null;
-        // }
+         if(isEmpty()) {
+             return null;
+         }
 
-        // // First attempt notes.
-        // Node removalNode = sentinel.prev;
+         Node removalNode = sentinel.prev;
 
-        // sentinel.prev = removalNode.prev;
-        // removalNode.prev.next = sentinel;
+         sentinel.prev = removalNode.prev;
+         removalNode.prev.next = sentinel;
 
-        // T returnData = removalNode.data;
+         T returnData = removalNode.data;
 
-        // removalNode.next = null;
-        // removalNode.prev = null;
+         removalNode.next = null;
+         removalNode.prev = null;
 
-        // size--;
-        // return returnData;
-         return null;
+         size--;
+         return returnData;
     }
 
     /**
