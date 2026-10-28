@@ -21,7 +21,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     }
 
     /**
-     *
+     * Constructor
      */
     public LinkedListDeque61B() {
         this.sentinel = new Node(null, null, null);
@@ -64,7 +64,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     /**
      *
-     * @return
+     * @return ArrayList containing the data of each node in order
      */
     @Override
     public List<T> toList() {
@@ -82,7 +82,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     /**
      *
-     * @return
+     * @return boolean answering 'is the list empty?'
+     * empty deque returns true, nonempty deque returns false
      */
     @Override
     public boolean isEmpty() {
@@ -96,7 +97,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     /**
      *
-     * @return
+     * @return int describing the size of the deque
      */
     @Override
     public int size() {
@@ -105,7 +106,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     /**
      *
-     * @return
+     * @return null if deque is empty, otherwise
+     * returns the data, type T, of the removed node
      */
     @Override
     public T removeFirst() {
@@ -131,7 +133,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     /**
      *
-     * @return
+     * @return null if empty, otherwise
+     * returns the data, type T, of the removed node
      */
     @Override
     public T removeLast() {
@@ -154,9 +157,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     }
 
     /**
-     * Returns data at specified index.
      * @param index index to get
-     * @return
+     * @return data, type T, at specified index
      */
     @Override
     public T get(int index) {
@@ -179,7 +181,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     /**
      *
      * @param index index to get
-     * @return
+     * @return null if the index is invalid, otherwise
+     * returns the data, type T, of the removed node via helper method
      */
     @Override
     public T getRecursive(int index) {
@@ -193,6 +196,15 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
          return getRecursiveHelper(sentinel.next, currentIndex, index);
     }
 
+    /**
+     *
+     * @param node the current node, used to keep track of node currently being
+     *             visited
+     * @param currentIndex the index used to compare against the desired index
+     * @param index the desired index, the index being searched for
+     * @return calls self if indexes do not match, otherwise
+     * returns the data, type T, of the removed node
+     */
     public T getRecursiveHelper(Node node, int currentIndex, int index) {
         // Nonnull base case:
          if(currentIndex == index) {
@@ -202,3 +214,4 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
          return getRecursiveHelper(node.next, currentIndex + 1, index);
     }
 }
+// https://www.youtube.com/watch?v=fEtnKeaLZDE

@@ -2,19 +2,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.google.common.truth.Truth.assertThat;
 
-// Almost matches the list given, the test names do at least:
-// https://sp24.datastructur.es/projects/proj1a/flags/
-// ?:/ Good enough? I don't have access to the autograder.
-
-// All tests do pass, so, that's nice.
-// removeLast() is only evaluated twice though.
-
-// Also, I need to do the Javadoc comments for the assignment...
-
-//
-// https://www.youtube.com/watch?v=2dgSVUX-mqQ
-//
-
 public class StealinTests {
     @Test
     public void add_first_from_empty() {
