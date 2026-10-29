@@ -145,7 +145,7 @@ public class LinkedListDeque61BTest {
 
     // START: size() Test Suite
     @Test
-    /** */
+    /** Tests if size() returns zero if the list is empty (only a sentinel). */
     public void sizeReturnsZeroIfListIsOnlySentinel() {
         Deque61B<String> justaLonelySentinel = new LinkedListDeque61B<>();
 
@@ -153,7 +153,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** */
+    /** Tests if size() returns one if the list is a single node (data type: String). */
     public void sizeReturnsOneIfStringListIsSingleNode() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -164,7 +164,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** */
+    /** Tests if size() returns one if the list is a single node (data type: Integer). */
     public void sizeReturnsOneIfIntegerListIsSingleNode() {
         Deque61B<Integer> testList = new LinkedListDeque61B<>();
 
@@ -175,7 +175,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** */
+    /** Tests if size() returns 10 for a list containing 10 nodes (data type: String). */
     public void sizeReturnsTenOnStringListContainingTenNodes() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -195,6 +195,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
+    /** Tests if size() returns 10 for a list containing 10 nodes (data type: Integer). */
     public void sizeReturnsTenOnIntegerListContainingTenNodes() {
         Deque61B<Integer> testList = new LinkedListDeque61B<>();
 
@@ -214,7 +215,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** */
+    /** Tests if size() returns three for a list containing three nodes (data type: String). */
     public void sizeReturnsThreeOnStringListContainingThreeNodes() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -227,6 +228,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
+    /** Tests if size() returns three for a list containing three nodes (data type: Integer). */
     public void sizeReturnsThreeOnIntegerListContainingThreeNodes() {
         Deque61B<Integer> testList = new LinkedListDeque61B<>();
 
@@ -239,6 +241,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
+    /** Tests if size() returns four on a list containing only null data (data type: String). */
     public void sizeReturnsFourOnStringListContainingOnlyNullData() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -250,12 +253,11 @@ public class LinkedListDeque61BTest {
 
         assertThat(testList.size()).isEqualTo(4);
     }
-    // ADD: Comments
     // END: size() Test Suite
 
-    // START: get() Test Suite
+    // START: get(int index) Test Suite
     @Test
-    /** Valid index */
+    /** Tests if get(int index) returns expected String for a given valid index. */
     public void getReturnsExpectedDataForValidIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -275,7 +277,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Index greater than size */
+    /** Tests if get(int index) returns null for an index greater than the size of the list. */
     public void getReturnsNullForIndexGreaterThanSize() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -295,7 +297,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Negative */
+    /** Tests if get(int index) returns null for an index less than zero. */
     public void getReturnsNullForNegativeIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -315,7 +317,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Data returned is simply null */
+    /** Tests if get(int index) returns null for an index containing null data. */
     public void getReturnsNullForNodeWithNullData() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -329,7 +331,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Index zero */
+    /** Tests if get(int index) returns the expected data for an index of zero. */
     public void getReturnsExpectedDataForIndexZero() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -349,7 +351,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Index one */
+    /** Tests if get(int index) returns the expected data for an index of one. */
     public void getReturnsExpectedDataForIndexOne() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -369,7 +371,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Last index */
+    /** Tests if get(int index) returns the expected data from the last index in a list. */
     public void getReturnsExpectedDataForLastIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -387,12 +389,11 @@ public class LinkedListDeque61BTest {
 
         assertThat(testList.get(9)).isEqualTo("ziti");
     }
-    // ADD: Update comments
-    // END: get() Test Suite
+    // END: get(int index) Test Suite
 
-    // START: getRecursive() Test Suite
+    // START: getRecursive(int index) and getRecursiveHelper(Node node, int currentIndex, int index) Test Suite
     @Test
-    /** Valid index */
+    /** Tests if getRecursive(int index) returns the expected data for a given valid index (data type: String). */
     public void getRecursiveReturnsExpectedDataForValidIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -412,7 +413,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Index greater than size */
+    /** Tests if getRecursive(int index) returns null for an index greater than the size of the list. */
     public void getRecursiveReturnsNullForIndexGreaterThanSize() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -432,7 +433,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Negative */
+    /** Tests if getRecursive(int index) returns null for an index less than zero. */
     public void getRecursiveReturnsNullForNegativeIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -452,7 +453,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Data returned is simply null */
+    /** Tests if getRecursive(int index) returns null for an index containing null data. */
     public void getRecursiveReturnsNullForNodeWithNullData() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -466,7 +467,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Index zero */
+    /** Tests if getRecursive(int index) returns the expected data for index zero. */
     public void getRecursiveReturnsExpectedDataForIndexZero() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -486,7 +487,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Index one */
+    /** Tests if getRecursive(int index) returns the expected data for index one. */
     public void getRecursiveReturnsExpectedDataForIndexOne() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -506,7 +507,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** Last index */
+    /** Tests if getRecursive(int index) returns the expected data from the last index in a list */
     public void getRecursiveReturnsExpectedDataForLastIndex() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -524,12 +525,11 @@ public class LinkedListDeque61BTest {
 
         assertThat(testList.getRecursive(9)).isEqualTo("ziti");
     }
-    // ADD: Update comments
-    // END: getRecursive() Test Suite
+    // END: getRecursive(int index) and getRecursiveHelper(Node node, int currentIndex, int index) Test Suite
 
     // START: removeFirst() Test Suite
     @Test
-    /** just a normal list, 3-4 nodes, nonnull data */
+    /** Tests if removeFirst() returns the expected data from a list with six nodes. */
     public void removeFirstListReturnsExpectedStringDataAndList() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -551,7 +551,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** just a normal list, first node's data is null (this one is kinda... unneeded) */
+    /** Tests if removeFirst() returns the null from a list with six nodes. */
     public void removeFirstListReturnsNullDataAndExpectedList() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -572,7 +572,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** single node */
+    /** Tests if removeFirst() returns the expected data from a list with a single node. */
     public void removeFirstReturnsExpectedDataAndListOfSizeOne() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -586,7 +586,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** just two nodes */
+    /** Tests if removeFirst() returns the expected data from a list with two nodes. */
     public void removeFirstReturnsExpectedListOfSizeTwo() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -602,7 +602,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** just the sentinel */
+    /** Tests if removeFirst() returns null for an empty list containing only the sentinel. */
     public void removeFirstReturnsNullForEmptyList() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -616,7 +616,7 @@ public class LinkedListDeque61BTest {
 
     // START: removeLast() Test Suite
     @Test
-    /** just a normal list, 3-4 nodes, nonnull data */
+    /** Tests if removeList() returns the expected data from a list with six nodes. */
     public void removeLastListReturnsExpectedStringDataAndList() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -637,7 +637,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** just a normal list, last node's data is null (this one is kinda... unneeded) */
+    /** Tests if removeLast() returns the null from a list with six nodes. */
     public void removeLastListReturnsNullDataAndExpectedList() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -658,7 +658,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** single node */
+    /** Tests if removeLast() returns the expected data from a list containing one node. */
     public void removeLastReturnsExpectedDataAndListOfSizeOne() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -672,7 +672,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** just two nodes */
+    /** Tests if removeLast() returns the expected data from a list containing two nodes. */
     public void removeLastReturnsExpectedListOfSizeTwo() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 
@@ -688,7 +688,7 @@ public class LinkedListDeque61BTest {
     }
 
     @Test
-    /** just the sentinel */
+    /** Tests if removeLast() returns null from an empty list containing only the sentinel. */
     public void removeLastReturnsNullForEmptyList() {
         Deque61B<String> testList = new LinkedListDeque61B<>();
 

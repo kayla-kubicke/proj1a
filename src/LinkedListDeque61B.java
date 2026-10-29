@@ -214,4 +214,3 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
          return getRecursiveHelper(node.next, currentIndex + 1, index);
     }
 }
-// https://www.youtube.com/watch?v=fEtnKeaLZDE
